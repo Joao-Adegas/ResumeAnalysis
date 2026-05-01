@@ -34,7 +34,7 @@ export default function Home() {
       formData.append("arquivo", file);
 
       const res = await axios.post<ApiResponse>(
-        "http://localhost:8080/doc/analyse",
+        `${process.env.NEXT_PUBLIC_API_URL}/doc/analyse`,
         formData
       );
       console.log(res.data);
