@@ -2,60 +2,22 @@
 
 import axios from "axios";
 import { useState } from "react";
+import { JobRecommendations } from "./components/jobCard";
 
 type Job = {
-  resume: string,
-  title: string,
-  company: string,
-  location: string,
-  remote: boolean,
-  url: string,
-  matchScore: number,
-  matchReason: number
-}
+  resume: string;
+  title: string;
+  company: string;
+  location: string;
+  remote: boolean;
+  url: string;
+  matchScore: number;
+  matchReason: string;   // ✅ correto
+};
+
 type ApiResponse = {
   jobRecommendations: Job[];
 };
-
-  const jobRecommendations = [
-    {
-      company: "Pound for Pound",
-      location: "München",
-      matchReason:
-        "Excelente oportunidade para aplicar habilidades em Design e UI/UX em um contexto de mídia social.",
-      matchScore: 95,
-      remote: false,
-      resume:
-        "Com sua habilidade em Design e experiência em UI/UX, a vaga de Social-Media / Youtube Content Creator/In (M/W/D) Als Werkstudent/In em Pound for Pound é uma ótima oportunidade para você aplicar suas habilidades criativas em um contexto de mídia social.",
-      title:
-        "Social-Media / Youtube Content Creator/In (M/W/D) Als Werkstudent/In",
-      url: "https://www.arbeitnow.com/jobs/companies/pound-for-pound/social-media-youtube-content-creator-in-als-werkstudent-in-munchen-419540",
-    },
-    {
-      company: "Q Media World",
-      location: "Munich",
-      matchReason:
-        "Excelente oportunidade para trabalhar com tecnologias de Design avançadas.",
-      matchScore: 80,
-      remote: true,
-      resume:
-        "Seu conhecimento em Adobe Photoshop, Illustrator e InDesign é uma grande atitude para a vaga de Grafiker w/m/d em Q Media World, onde você pode trabalhar com tecnologias de Design avançadas.",
-      title: "Grafiker w/m/d",
-      url: "https://www.arbeitnow.com/jobs/companies/q-media-world/grafiker-munich-407522",
-    },
-    {
-      company: "Fifteen-Love GbR",
-      location: "Frankfurt am Main",
-      matchReason:
-        "Excelente oportunidade para aplicar habilidades em Design em um contexto de mídia social.",
-      matchScore: 85,
-      remote: false,
-      resume:
-        "Com sua experiência em Figma e XD, a vaga de Social Media Management Werkstudent (m/w/d) em Fifteen-Love GbR é uma ótima oportunidade para você aplicar suas habilidades em Design em um contexto de mídia social.",
-      title: "Social Media Management Werkstudent (m/w/d)",
-      url: "https://www.arbeitnow.com/jobs/companies/fifteen-love-gbr/social-media-management-werkstudent-frankfurt-am-main-84380",
-    },
-  ];
 
 export default function Home() {
   const [error, setError] = useState<string | null>(null);
@@ -95,7 +57,7 @@ export default function Home() {
 
   return (
     <section>
-      <div className="flex flex-col gap-2 h-screen items-center justify-center p-6">
+      <div className="flex flex-col gap-2 min-h-screen items-center justify-center py-10 px-4">
         {job.length === 0 ? (
           <>
           <div>
@@ -134,13 +96,13 @@ export default function Home() {
 
           </div>
           </>
-        ) : job && job.map((a) => (
-          <div key={`${a.url}-${a.company}-${a.matchScore}-${a.location}-${a.matchReason}-${a.title}`} className="text-white">
-            <p>{a.title}</p>
+        ) : job.length > 0 && (
+          <div>
+            <h1>Vagas para você</h1>
+            <JobRecommendations jobs={job} />
           </div>
-        ))
-        }
-
+        )
+      }
         {error && <p className="text-red-500">{error}</p>}
 
 
