@@ -13,6 +13,7 @@ import resume.analysis.ResumeAnalysis.dto.AnalysesResponse;
 import resume.analysis.ResumeAnalysis.dto.JobRecommendation;
 import resume.analysis.ResumeAnalysis.dto.ResumeWithJobsResponse;
 import resume.analysis.ResumeAnalysis.service.JobRecommendationService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
