@@ -5,6 +5,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Resume Analysis",
   description: "Find job openings with AI",
+   icons: {
+    icon: "/assets/relatorio512px.png",
+  },
 };
 
 export default function RootLayout({
