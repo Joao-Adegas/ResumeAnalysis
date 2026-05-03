@@ -1,7 +1,7 @@
 # ResumeAnalysis
 
 <!-- Insert platform demo GIF here -->
-![Demo](./demo.gif)
+![Demo](/assets/ResumeAnalyses.gif)
 
 ---
 
