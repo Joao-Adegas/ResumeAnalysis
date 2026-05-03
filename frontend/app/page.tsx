@@ -12,8 +12,10 @@ type Job = {
   remote: boolean;
   url: string;
   matchScore: number;
-  matchReason: string;   // ✅ correto
+  matchReason: string;   
 };
+
+
 
 type ApiResponse = {
   jobRecommendations: Job[];
