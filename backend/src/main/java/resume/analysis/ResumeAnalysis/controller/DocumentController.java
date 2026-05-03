@@ -61,7 +61,6 @@ public class DocumentController {
             description = "Recebe um arquivo PDF, extrai o texto, analisa com IA e retorna as melhores vagas da API Arbeitnow para o perfil do candidato."
     )
     @ApiResponse(responseCode = "200", description = "Análise e recomendações retornadas com sucesso")
-    @CrossOrigin(origins="http://localhost:3000")
     @PostMapping("/analyse")
     public ResumeWithJobsResponse uploadAndRecommend(@RequestParam("arquivo") MultipartFile arquivo) throws IOException {
         try {
